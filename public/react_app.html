@@ -6,12 +6,23 @@
     <title>Reactr</title>
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 </head>
 
 <body>
     <h1>React</h1>
-    <div id="root"><wait class=""></wait></div>
-
+    <div id="root">wait...</div>
+    <script type="text/babel">
+        let dom = document.querySelector('#root');
+        var counter = 0;
+        setInterval(() => {
+            counter++;
+            let el = (
+                <div>count: {counter}</div>
+            );
+            ReactDOM.render(el, dom);
+        }, 1000);
+    </script>
 </body>
 
 </html>
