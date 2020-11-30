@@ -14,14 +14,29 @@
     <div id="root">wait...</div>
     <script type="text/babel">
         let dom = document.querySelector('#root');
-        var counter = 0;
-        setInterval(() => {
-            counter++;
+        let message = 'hello';
+        let in_val = '';
+
+
+        let doChange = (event) => {
+            in_val = event.target.value;
+            message = 'nice' + in_val + 'san!';
+        };
+
+        let doAction = (event) => {
+
             let el = (
-                <div>count: {counter}</div>
+                <div>
+                    <p>{message}</p>
+                    <div>
+                        <input type="text" id="input" onChange={doChange} />
+                        <button onClick={doAction} >Click</button>
+                    </div>
+                </div>
             );
             ReactDOM.render(el, dom);
-        }, 1000);
+        };
+        doAction();
     </script>
 </body>
 
