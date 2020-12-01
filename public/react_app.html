@@ -14,29 +14,45 @@
     <div id="root">wait...</div>
     <script type="text/babel">
         let dom = document.querySelector('#root');
-        let message = 'hello';
+        let message = 'Hello';
         let in_val = '';
+
+        const msg = {
+            fontSize: "20px",
+            fontWeight: "bold",
+            padding: "10px",
+            color: "white",
+            background: "darkblue"
+        };
+
+        function Welcome(props) {
+            return <p>Hello Components!</p>
+        }
 
 
         let doChange = (event) => {
             in_val = event.target.value;
-            message = 'nice' + in_val + 'san!';
+            message = in_val;
         };
 
         let doAction = (event) => {
 
             let el = (
                 <div>
-                    <p>{message}</p>
+                    <Welcome />
+                    <p style={msg}>{message}</p>
                     <div>
                         <input type="text" id="input" onChange={doChange} />
                         <button onClick={doAction} >Click</button>
                     </div>
+
                 </div>
             );
             ReactDOM.render(el, dom);
         };
         doAction();
+
+
     </script>
 </body>
 
