@@ -1,31 +1,38 @@
 import React, { Component } from 'react';
-import React from './React';
+import { connect } from 'react-redux';
 import './App.css';
+import Memo from './memo/Memo';
+import AddForm from './memo/AddForm';
+import FindForm from './memo/FindForm';
+import DelForm from './memo/DelForm';
 
+
+// Appコンポーネント
 class App extends Component {
-  msgStyle = {
-    fontSize: "24px",
-    color: "#900",
-    margin: "20px 0px",
-    padding: "5px",
-    borderBottom: "2px solod#900"
+  td = {
+    width:"250px"
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      msg: 'Hello Component.',
-    };
 
+  constructor(props){
+    super(props);
   }
 
   render() {
-    return <div><h1>React</h1>
-      <p>{this.state.msg}</p>
-      <p>{this.props.msg}</p></div>
+    return (
+      <div>
+        <h1>Memo</h1>
+        <AddForm />
+        <hr />
+        <table><tbody><tr>
+          <td style={this.td}><FindForm /></td>
+          <td style={this.td}><DelForm /></td>
+        </tr></tbody></table>
+        <Memo />
+      </div>
+    );
   }
-
 }
 
 
-export default App;
+export default connect()(App);

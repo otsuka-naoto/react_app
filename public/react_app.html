@@ -17,40 +17,62 @@
         let message = 'Hello';
         let in_val = '';
 
-        const msg = {
-            fontSize: "20px",
-            fontWeight: "bold",
+        const msg1 = {
+            fontSize: "20pt",
             padding: "10px",
-            color: "white",
-            background: "darkblue"
+            border: "double 5px magenta"
         };
 
-        function Welcome(props) {
-            return <p>Hello Components!</p>
+        const msg2 = {
+            fontSize: "16pt",
+            fontWeight: "bold",
+            padding: "10px",
+            backgroundColor: "Cyan"
+        };
+
+        class Hello extends React.Component {
+
+            constructor(props) {
+                super(props);
+            }
+
+            render() {
+                return <p style={msg1}>Hello !</p>
+            }
+
         }
 
 
-        let doChange = (event) => {
-            in_val = event.target.value;
-            message = in_val;
-        };
+        let el = (
+            <div>
+                <Hello />
+            </div>
+        );
 
-        let doAction = (event) => {
 
-            let el = (
-                <div>
-                    <Welcome />
-                    <p style={msg}>{message}</p>
-                    <div>
-                        <input type="text" id="input" onChange={doChange} />
-                        <button onClick={doAction} >Click</button>
-                    </div>
+        //        let doChange = (event) => {
+        //     in_val = event.target.value;
+        //     message = in_val;
+        // };
 
-                </div>
-            );
-            ReactDOM.render(el, dom);
-        };
-        doAction();
+        // let doAction = (event) => {
+
+        // let el = (
+        //     <div>
+        //         <Welcome />
+        //         <p style={msg}>{message}</p>
+        //         <div>
+        //             <input type="text" id="input" onChange={doChange} />
+        //             <button onClick={doAction} >Click</button>
+        //         </div>
+
+        //     </div>
+        // );
+
+
+        ReactDOM.render(el, dom);
+        // };
+        // doAction();
 
 
     </script>
