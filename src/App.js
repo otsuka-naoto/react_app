@@ -1,38 +1,41 @@
+
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import './App.css';
-import Memo from './memo/Memo';
-import AddForm from './memo/AddForm';
-import FindForm from './memo/FindForm';
-import DelForm from './memo/DelForm';
+import Sampledata from './fire/SampleData';
+import firebase from "firebase";
+
+
+// Firebaseの設定
+var config = {
+  apiKey: "AIzaSyD5LQ3qpdyXPDPEC89JFTjHBSAfk2SnSA8",
+  authDomain: "otsuka-project-5e100.firebaseapp.com",
+  databaseURL: "https://otsuka-project-5e100-default-rtdb.firebaseio.com",
+  projectId: "otsuka-project-5e100",
+  storageBucket: "otsuka-project-5e100.appspot.com",
+  messagingSenderId: "61499953088",
+  appId: "1:61499953088:web:e1da858f8204e85a198225",
+  measurementId: "G-5QEZ6SNWVJ"
+};
+
+
+// Firebaseの初期化
+firebase.initializeApp(config);
 
 
 // Appコンポーネント
 class App extends Component {
-  td = {
-    width:"250px"
-  }
 
-
-  constructor(props){
-    super(props);
-  }
 
   render() {
     return (
       <div>
-        <h1>Memo</h1>
-        <AddForm />
-        <hr />
-        <table><tbody><tr>
-          <td style={this.td}><FindForm /></td>
-          <td style={this.td}><DelForm /></td>
-        </tr></tbody></table>
-        <Memo />
+        <h1>Fire</h1>
+        <h2>Sample data.</h2>
+        <Sampledata />
       </div>
     );
   }
 }
 
 
-export default connect()(App);
+export default App;
